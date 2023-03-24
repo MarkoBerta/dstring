@@ -128,10 +128,6 @@ void strReverse(string* arg) {
 	strrev(arg->str);
 }
 
-char** strSplitc(string* arg, char chr) {
-	
-}
-
 void strCpy(string* a, string* b) {
 	if (a->size >= b->size) {
 		strcpy(a->str, b->str);
