@@ -28,10 +28,6 @@ void clean_str(string** a) {
 											strcpy(strn->str, chrp);\
 											strn->size = strlen(chrp);\
 											strn->memsize = strn->size+1;
-void strFree(string* a) {
-	free(a->str);
-	free(a);
-}
 
 #ifdef WIN32
 void strUsableBytes(string* a) {
@@ -96,10 +92,12 @@ size_t strSub(string* arg, string* sub) {
 	return ret;
 }
 
+#ifdef WIN32
 void strRefresh(string* arg) {
 	arg->size = strlen(arg->str);
 	arg->memsize = _msize(arg->str);
 }
+#endif
 
 char strIndex(string* arg, size_t ind) {
 	return arg->str[ind];
